@@ -93,6 +93,7 @@ def prt_loginSucces(username):
     clear()
     time.sleep(1)
     print("Logged in. Welcome back, {}".format(username))
+    input()
 # Method handling signing up
 
 
