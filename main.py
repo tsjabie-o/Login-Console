@@ -8,6 +8,7 @@ def initialInstruction():
 
 
 def signUp():
+    print("Creating new user account...")
     print('Please enter username:')
     username = input()
     print("Please enter password")
@@ -19,6 +20,10 @@ def signUp():
         password = input()
         password_2 = input()
     else:
+        account_str = username + " " + password + "\n"
+        database = open("database.txt", "a")
+        database.write(account_str)
+        database.close()
         print('Account created!')
 
 # Method for login
@@ -28,8 +33,11 @@ def login():
     print("Please enter username")
     username = input()
     while username != "tsjabie.o":
-        print("That's not a username I know \n Please enter a valid username")
+        print("That's not a username I know \nPlease enter a valid username or type 'signup' to create a new account")
         username = input()
+        if username == 'signup':
+            signUp()
+            break
     else:
         print("Enter password:")
         password = input()
