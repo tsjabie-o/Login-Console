@@ -11,7 +11,10 @@ def clear(): return os.system('cls')
 
 def initialInstruction():
     clear()
-    print("Welcome. Please enter 'login' to log in, or type 'signup' to create a new account")
+    print("Connecting to top-secret FBI-database....")
+    time.sleep(3)
+    clear()
+    print("Welcome. Please type 'login' to log in, or type 'signup' to create a new account")
     firstInput = input()
     return firstInput
 
