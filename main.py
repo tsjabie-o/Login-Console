@@ -4,13 +4,34 @@ def initialInstruction():
     firstInput = input()
     return firstInput
 
+# Method for signing up
+
+
+def signUp():
+    print('Please enter username:')
+    username = input()
+    print("Please enter password")
+    password = input()
+    print("Please enter password again")
+    password_2 = input()
+    while password != password_2:
+        print('Passwords do not match, please enter again')
+        password = input()
+        password_2 = input()
+    else:
+        print('Account created!')
+
 
 # Saving initial user input
 firstInput = initialInstruction()
 
-# Checking for legit input
+# Checking for legit input, asking user again if not legit
 while firstInput != 'login' and firstInput != 'signup':
     print("Invalid input. Type 'login' to login, or 'signup' to create new account")
     firstInput = input()
 else:
-    print("Sure")
+    if firstInput == "signup":
+        signUp()
+    else:
+        pass
+
