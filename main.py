@@ -21,6 +21,24 @@ def signUp():
     else:
         print('Account created!')
 
+# Method for login
+
+
+def login():
+    print("Please enter username")
+    username = input()
+    while username != "tsjabie.o":
+        print("That's not a username I know \n Please enter a valid username")
+        username = input()
+    else:
+        print("Enter password:")
+        password = input()
+        while password != "pphard":
+            print("Password not correct. Please try again")
+            password = input()
+        else:
+            print("Succesfully logged in!")
+
 
 # Saving initial user input
 firstInput = initialInstruction()
@@ -33,5 +51,4 @@ else:
     if firstInput == "signup":
         signUp()
     else:
-        pass
-
+        login()
