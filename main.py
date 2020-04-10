@@ -81,7 +81,6 @@ def prt_loginIncorrPass(username):
 
 
 def prt_loginSucces(username):
-    clear()
     time.sleep(1)
     print("Checking password...")
     time.sleep(2)
