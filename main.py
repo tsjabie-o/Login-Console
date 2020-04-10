@@ -8,23 +8,37 @@ def initialInstruction():
 
 
 def signUp():
-    print("Creating new user account...")
+    print("Preparing to create new account")
     print('Please enter username:')
+    print("Usernames may not contain spaces!")
     username = input()
-    print("Please enter password")
+    print("Thank you. Please enter password. \nPasswords may not contain spaces either!")
     password = input()
-    print("Please enter password again")
+    print("For confirmation, please enter password again")
     password_2 = input()
     while password != password_2:
-        print('Passwords do not match, please enter again')
+        print('Passwords do not match, please enter both again')
         password = input()
         password_2 = input()
     else:
+        print("Passwords match!")
+        print("Adding account to database")
         account_str = username + " " + password + "\n"
         database = open("database.txt", "a")
         database.write(account_str)
         database.close()
         print('Account created!')
+        print("To login, type 'login', to create another account type 'signup'")
+        userinput = input()
+        while userinput != 'login' and userinput != 'signup':
+            print(
+                "Invalid input. Type 'login' to login, or 'signup' to create new account")
+            userinput = input()
+        else:
+            if userinput == 'login':
+                login()
+            else:
+                signUp()
 
 # Method for login
 
