@@ -40,26 +40,53 @@ def signUp():
             else:
                 signUp()
 
-# Method for login
+# Checks if given password and username match, report true or false
+
+
+def passwordCheck(username, password):
+    database = open('database.txt', 'r')
+    for line in database:
+        words = line.split()
+        if words[0] == username and words[1] == password:
+            database.close()
+            return True
+    database.close()
+    return False
+
+# Checks if given username exists, reports true or false
+
+
+def usernameCheck(username):
+    database = open('database.txt', 'r')
+    for line in database:
+        words = line.split()
+        if words[0] == username:
+            database.close()
+            return True
+    database.close()
+    return False
+
+# Starts the logging in process
 
 
 def login():
-    print("Please enter username")
+    print("Please enter your username")
     username = input()
-    while username != "tsjabie.o":
-        print("That's not a username I know \nPlease enter a valid username or type 'signup' to create a new account")
+    while not usernameCheck(username):
+        print(
+            "That is not an existing username.\nPlease try again or type 'signup' to signup")
         username = input()
         if username == 'signup':
             signUp()
             break
     else:
-        print("Enter password:")
+        print("Enter your password")
         password = input()
-        while password != "pphard":
-            print("Password not correct. Please try again")
+        while not passwordCheck(username, password):
+            print("Incorrect password, please try again")
             password = input()
         else:
-            print("Succesfully logged in!")
+            print("Logged in!")
 
 
 # Saving initial user input
